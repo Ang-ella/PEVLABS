@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEV Labs | Clean energy and mobility, engineered.</title>
+    <meta name="description" content="We deliver battery energy storage (BESS), solar & charging infrastructure, and complete EV conversions for standard, micromobility, and fleet vehicles.">
+    <meta name="theme-color" content="#0a0f14">
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =========
+           RESET & VARIABLES
+           ========= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0f14;
+            --bg-secondary: #0f151c;
+            --bg-card: #131a22;
+            --text-primary: #e9eef2;
+            --text-secondary: #b8c3cc;
+            --accent-blue: #17a2ff;
+            --accent-green: #67e8a6;
+            --border: #223040;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.2);
+            --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-blue: #2563eb;
+            --accent-green: #059669;
+            --border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* =========
+           HEADER
+           ========= */
+        header {
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all var(--transition);
+        }
+
+        .light-theme header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        header.scrolled {
+            padding: 0.75rem 0;
+            background: rgba(10, 15, 20, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .light-theme header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .container {
+            width: min(100%, 1440px);
+            margin-inline: auto;
+            padding-inline: clamp(1rem, 3vw, 2rem);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Styles */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-text {
+          display: flex;
+          align-items: center;
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--accent-blue);
+        }
+
+        .logo-accent {
+        color: var(--accent-green);
+        }
+
+        /* Header controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all var(--transition);
+            margin-left: auto;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-blue);
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+        }
+
+        /* Mobile top bar */
+        .mobile-top-bar {
+            display: none;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 0;
+        }
+
+        .mobile-top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mobile-contact a {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .mobile-contact a:hover {
+            color: var(--accent-blue);
+        }
+
+        .mobile-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+
+        /* Mobile sidebar */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-primary);
+            z-index: 1001;
+            transition: right var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .light-theme .mobile-sidebar {
+            background: var(--bg-primary);
+        }
+
+        .mobile-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .sidebar-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .sidebar-close-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .sidebar-nav {
+            padding: 1rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .sidebar-nav-menu {
+            list-style: none;
+        }
+
+        .sidebar-nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav-link {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all var(--transition);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-nav-link:hover {
+            color: var(--accent-blue);
+            padding-left: 0.5rem;
+        }
+
+        .sidebar-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .sidebar-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-contact a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-contact a:hover {
+            color: var(--accent-blue);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* =========
+           CONTACT HERO - MODERN DESIGN
+           ========= */
+        .contact-hero-modern {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(23, 162, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(103, 232, 166, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 8rem 2rem;
+        }
+
+        .light-theme .contact-hero-modern {
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-geometric-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(23, 162, 255, 0.03) 50px,
+                    rgba(23, 162, 255, 0.03) 51px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(103, 232, 166, 0.03) 50px,
+                    rgba(103, 232, 166, 0.03) 51px
+                );
+            opacity: 0.3;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+        }
+
+        .hero-text-content {
+            padding-right: 2rem;
+        }
+
+        .contact-hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-hero-tag::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        .contact-hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-blue) 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Hero Visual Element */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(23, 162, 255, 0.1), rgba(103, 232, 166, 0.1));
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(23, 162, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .floating-contact-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            animation: floatIcon 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 60%;
+            left: 70%;
+            animation-delay: -2s;
+            color: var(--accent-green);
+        }
+
+        .floating-icon:nth-child(3) {
+            top: 40%;
+            left: 10%;
+            animation-delay: -4s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 80%;
+            left: 30%;
+            animation-delay: -1s;
+            color: var(--accent-green);
+        }
+
+        @keyframes floatIcon {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(10px, -20px) rotate(5deg);
+            }
+            50% {
+                transform: translate(-15px, 10px) rotate(-5deg);
+            }
+            75% {
+                transform: translate(5px, 15px) rotate(3deg);
+            }
+        }
+
+        .visual-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .visual-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        /* =========
+           CONTACT SECTIONS - MODERN GRID
+           ========= */
+        .contact-sections-modern {
+            padding: 6rem 2rem;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .sections-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Contact Methods Grid */
+        .contact-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .contact-method-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-method-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .method-card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--bg-primary);
+            font-size: 2rem;
+        }
+
+        .method-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .method-card-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .method-card-contact {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .method-card-contact:hover {
+            gap: 1rem;
+        }
+
+        /* Form & Info Side-by-Side */
+        .form-info-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        @media (max-width: 1024px) {
+            .form-info-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-header {
+            margin-bottom: 3rem;
+        }
+
+        .form-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Modern Form Styling */
+        .modern-contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group-modern {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .form-label-modern {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .required-dot {
+            color: #ff4757;
+            font-size: 0.8rem;
+        }
+
+        .form-input-modern {
+            background: rgba(10, 15, 20, 0.3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem 1.5rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .light-theme .form-input-modern {
+            background: rgba(248, 250, 252, 0.8);
+        }
+
+        .form-input-modern:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(23, 162, 255, 0.1);
+        }
+
+        .form-input-modern::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .form-row-modern {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row-modern {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-textarea-modern {
+            min-height: 150px;
+            resize: vertical;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-select-modern {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2317a2ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Info Cards Sidebar */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(19, 26, 34, 0.9));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .light-theme .info-card {
+            background: linear-gradient(135deg, var(--bg-card), rgba(255, 255, 255, 0.95));
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-green);
+        }
+
+        .info-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-card-title i {
+            font-size: 1.5rem;
+        }
+
+        .info-card-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-list li {
+            padding: 0.5rem 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-list li i {
+            color: var(--accent-blue);
+        }
+
+        /* =========
+           LOCATION & TEAM - MODERN LAYOUT
+           ========= */
+        .location-team-section {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .location-team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* Location Map */
+        .location-map-container {
+            margin-bottom: 6rem;
+        }
+
+        .map-visual {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(23, 162, 255, 0.1), rgba(103, 232, 166, 0.1));
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(23, 162, 255, 0.2);
+        }
+
+        .map-pin {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            position: relative;
+            animation: pulsePin 2s ease-in-out infinite;
+        }
+
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border-radius: 50%;
+        }
+
+        @keyframes pulsePin {
+            0%, 100% {
+                transform: rotate(-45deg) scale(1);
+            }
+            50% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+        }
+
+        .location-details-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .location-detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .location-detail-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .location-detail-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--accent-green);
+        }
+
+        /* Team Contacts */
+        .team-contacts {
+            margin-top: 6rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .team-role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-contact {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-email {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* =========
+           BUTTONS - MODERN STYLE
+           ========= */
+        .btn-modern {
+            padding: 1.2rem 2.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-modern {
+            background: linear-gradient(135deg, var(--accent-blue), #0f7dc4);
+            color: var(--bg-primary);
+        }
+
+        .btn-secondary-modern {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-submit-btn-modern {
+            width: 100%;
+            justify-content: center;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-actions-modern {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* =========
+           FOOTER
+           ========= */
+        footer {
+            background: var(--bg-secondary);
+            padding: clamp(3rem, 6vw, 4rem) 0 0;
+            margin-top: auto;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: color var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .footer-contact-info {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact-info p {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact-info a {
+            color: var(--text-secondary);
+            transition: color var(--transition);
+        }
+
+        .footer-contact-info a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Social media icons in footer bottom */
+        .footer-social-section {
+            background: var(--bg-card);
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: all var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .social-icon:hover {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            background: var(--bg-card);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* =========
+           RESPONSIVE
+           ========= */
+        @media (max-width: 768px) {
+            .mobile-top-bar {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .header-controls {
+                display: none;
+            }
+
+            .mobile-controls {
+                display: flex;
+            }
+            
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .hero-text-content {
+                padding-right: 0;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-visual {
+                height: 400px;
+            }
+            
+            .hero-actions-modern {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-modern {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-social {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .social-icons {
+                gap: 0.75rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-top-bar {
+                display: none;
+            }
+            
+            .mobile-controls {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero-title {
+                font-size: clamp(2.5rem, 6vw, 3.5rem);
+            }
+            
+            .contact-sections-modern,
+            .location-team-section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Top Bar -->
+    <div class="mobile-top-bar">
+        <div class="container">
+            <div class="mobile-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+            </div>
+            <div class="mobile-controls">
+                <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo">
+              <img src="logo.svg" alt="PEV Labs - Clean energy and mobility" class="logo-image">
+            </a>
+            
+           <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/" class="nav-link active">Home</a></li>
+                    <li><a href="About.html" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Solutions</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="blogs1.html" class="nav-link">Blog</a></li>
+                    <li><a href="Partnership.html" class="nav-link">Partnerships</a></li>
+
+                </ul>
+            </nav>
+            
+            <div class="header-controls">
+                <button class="theme-toggle" id="desktopThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">
+                <a href="/" class="logo">
+              <img src="logo.svg" alt="PEV Labs - Clean energy and mobility" class="logo-image">
+            </a>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-nav">
+            <ul class="sidebar-nav-menu">
+                <li class="sidebar-nav-item"><a href="index.html" class="sidebar-nav-link">Home</a></li>
+                <li class="sidebar-nav-item"><a href="About.html" class="sidebar-nav-link">About</a></li>
+                <li class="sidebar-nav-item"><a href="#projects" class="sidebar-nav-link">Solutions</a></li>
+                <li class="sidebar-nav-item"><a href="Partnership.html" class="sidebar-nav-link">Partnership</a></li>
+                <li class="sidebar-nav-item"><a href="blogs1.html" class="sidebar-nav-link">Blog</a></li>
+                <li class="sidebar-nav-item"><a href="contact.html" class="sidebar-nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+                <a href="#" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Contact Hero -->
+    <section class="contact-hero-modern">
+        <div class="hero-geometric-grid"></div>
+                
+                <div class="hero-visual">
+                    <div class="floating-contact-icons">
+                        <div class="floating-icon"><i class="fas fa-comment-dots"></i></div>
+                        <div class="floating-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="floating-icon"><i class="fas fa-phone"></i></div>
+                        <div class="floating-icon"><i class="fas fa-video"></i></div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <h3 class="visual-title">Ready to Engineer Tomorrow?</h3>
+                        <p class="visual-subtitle">Schedule a virtual consultation with our engineering team</p>
+                        <a href="#" class="btn-modern btn-primary-modern">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Sections Modern Layout -->
+    <section class="contact-sections-modern">
+        <div class="sections-container">
+            <!-- Contact Methods Grid -->
+            <div class="contact-methods-grid">
+                
+                <div class="contact-method-card">
+                    <div class="method-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="method-card-title">Visit Us</h3>
+                    <p class="method-card-description">
+                        Schedule an in-person meeting at our engineering headquarters 
+                        with state-of-the-art facilities.
+                    </p>
+                    <a href="#location" class="method-card-contact">
+                        View Location
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Form & Info Grid -->
+            <div class="form-info-grid">
+                <!-- Form Section -->
+                <div class="form-section">
+                    <div class="form-header">
+                        <h2 class="form-title">Project Inquiry Form</h2>
+                        <p class="form-subtitle">Tell us about your engineering challenge</p>
+                    </div>
+                    
+                    <form class="modern-contact-form" id="contact-form">
+                        <div class="form-row-modern">
+                            <div class="form-group-modern">
+                                <label class="form-label-modern">
+                                    First Name
+                                    <span class="required-dot">•</span>
+                                </label>
+                                <input type="text" class="form-input-modern" placeholder="John" required>
+                            </div>
+                            <div class="form-group-modern">
+                                <label class="form-label-modern">
+                                    Last Name
+                                    <span class="required-dot">•</span>
+                                </label>
+                                <input type="text" class="form-input-modern" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-modern">
+                            <div class="form-group-modern">
+                                <label class="form-label-modern">
+                                    Email Address
+                                    <span class="required-dot">•</span>
+                                </label>
+                                <input type="email" class="form-input-modern" placeholder="john.doe@example.com" required>
+                            </div>
+                            <div class="form-group-modern">
+                                <label class="form-label-modern">
+                                    Phone Number
+                                </label>
+                                <input type="tel" class="form-input-modern" placeholder="+1 (123) 456-7890">
+                            </div>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">
+                                Company Name
+                            </label>
+                            <input type="text" class="form-input-modern" placeholder="Your Company Inc.">
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">
+                                Project Type
+                                <span class="required-dot">•</span>
+                            </label>
+                            <select class="form-input-modern form-select-modern" required>
+                                <option value="" disabled selected>Select project type</option>
+                                <option value="mechanical">Mechanical Engineering</option>
+                                <option value="electrical">Electrical Systems</option>
+                                <option value="structural">Structural Design</option>
+                                <option value="automation">Industrial Automation</option>
+                                <option value="consulting">Engineering Consulting</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">
+                                Project Timeline
+                            </label>
+                            <select class="form-input-modern form-select-modern">
+                                <option value="" selected>Select timeline</option>
+                                <option value="urgent">Urgent (0-2 weeks)</option>
+                                <option value="short">Short-term (1-3 months)</option>
+                                <option value="medium">Medium-term (3-6 months)</option>
+                                <option value="long">Long-term (6+ months)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">
+                                Project Description
+                                <span class="required-dot">•</span>
+                            </label>
+                            <textarea class="form-input-modern form-textarea-modern" placeholder="Describe your engineering requirements, challenges, and desired outcomes..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-modern btn-primary-modern form-submit-btn-modern">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Project Inquiry
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="info-sidebar">
+                    <div class="info-card">
+                        <h3 class="info-card-title">
+                            <i class="fas fa-clock"></i>
+                            Response Timeline
+                        </h3>
+                        <div class="info-card-content">
+                            <p>Our engineering team follows a structured response process:</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-check-circle"></i> Initial response within 24 hours</li>
+                                <li><i class="fas fa-check-circle"></i> Technical review within 48 hours</li>
+                                <li><i class="fas fa-check-circle"></i> Detailed proposal within 72 hours</li>
+                                <li><i class="fas fa-check-circle"></i> Project kickoff within 1 week</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3 class="info-card-title">
+                            <i class="fas fa-headset"></i>
+                            Support Hours
+                        </h3>
+                        <div class="info-card-content">
+                            <p>We provide comprehensive support throughout the week:</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-calendar-day"></i> Monday - Friday: 8 AM - 6 PM</li>
+                                <li><i class="fas fa-calendar-day"></i> Saturday: 9 AM - 2 PM</li>
+                                <li><i class="fas fa-exclamation-triangle"></i> 24/7 Emergency Support</li>
+                                <li><i class="fas fa-globe"></i> Global Time Zone Coverage</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3 class="info-card-title">
+                            <i class="fas fa-file-contract"></i>
+                            What to Include
+                        </h3>
+                        <div class="info-card-content">
+                            <p>For faster processing, include these details:</p>
+                            <ul class="info-list">
+                                <li><i class="fas fa-file-alt"></i> Technical specifications</li>
+                                <li><i class="fas fa-ruler-combined"></i> CAD drawings (if available)</li>
+                                <li><i class="fas fa-dollar-sign"></i> Budget range</li>
+                                <li><i class="fas fa-calendar-alt"></i> Timeline requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Team Section -->
+    <section class="location-team-section" id="location">
+        <div class="location-team-container">
+            <div class="section-header">
+                <h2 class="section-title">Our Locations & Team</h2>
+                <p class="section-subtitle">Connect with our engineering experts across multiple locations and specialties</p>
+            </div>
+
+            <!-- Location Map -->
+            <div class="location-map-container">
+                <div class="map-visual">
+                    <div class="map-pin"></div>
+                </div>
+                
+                <div class="location-details-modern">
+                    <div class="location-detail-card">
+                        <h4 class="location-detail-title">Headquarters</h4>
+                        <p>123 Engineering Way<br>
+                        Tech Innovation District<br>
+                        San Francisco, CA 94107</p>
+                    </div>
+                    
+                    <div class="location-detail-card">
+                        <h4 class="location-detail-title">Parking</h4>
+                        <p>Visitor parking available<br>
+                        Underground parking structure<br>
+                        Electric vehicle charging stations</p>
+                    </div>
+                    
+                    <div class="location-detail-card">
+                        <h4 class="location-detail-title">Transportation</h4>
+                        <p>BART: Montgomery Station (0.3mi)<br>
+                        Muni: Lines 5, 7, 30, 45<br>
+                        Bike share at entrance</p>
+                    </div>
+                    
+                    <div class="location-detail-card">
+                        <h4 class="location-detail-title">Accessibility</h4>
+                        <p>Fully accessible building<br>
+                        Wheelchair ramps & elevators<br>
+                        Service animal friendly</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Contacts -->
+            <div class="team-contacts">
+                <div class="section-header">
+                    <h2 class="section-title">Key Contacts</h2>
+                    <p class="section-subtitle">Connect directly with our engineering leadership team</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">SR</div>
+                        <h3 class="team-name">Sarah Rodriguez</h3>
+                        <div class="team-role">Director of Mechanical Engineering</div>
+                        <div class="team-contact"><i class="fas fa-phone"></i> +1 (123) 456-7891</div>
+                        <a href="mailto:sarah@quantumengineering.com" class="team-email">sarah@quantumengineering.com</a>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">MJ</div>
+                        <h3 class="team-name">Michael Johnson</h3>
+                        <div class="team-role">Lead Electrical Engineer</div>
+                        <div class="team-contact"><i class="fas fa-phone"></i> +1 (123) 456-7892</div>
+                        <a href="mailto:michael@quantumengineering.com" class="team-email">michael@quantumengineering.com</a>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">EC</div>
+                        <h3 class="team-name">Emma Chen</h3>
+                        <div class="team-role">Project Manager</div>
+                        <div class="team-contact"><i class="fas fa-phone"></i> +1 (123) 456-7893</div>
+                        <a href="mailto:emma@quantumengineering.com" class="team-email">emma@quantumengineering.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Solutions Column -->
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/ev-conversions">EV Conversion</a></li>
+                        <li><a href="/solutions/ess">Energy Storage Solutions</a></li>
+                        <li><a href="/solutions/charging">Charging Infrastructure</a></li>
+                        <li><a href="/solutions/solar">Solar Infrastructure</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="/careers">Solutions</a></li>
+                        <li><a href="/blog">News & Insights</a></li>
+                        <li><a href="/partnerships">Partnerships & Investors</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Column -->
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/terms">Terms & Conditions</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/compliance">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <p><strong>ProDrive EV Labs Ltd</strong></p>
+                        <p>No. 1 Densu Street<br>
+                        Haavad Valley, Amrahia<br>
+                        Greater Accra, Ghana</p>
+                        <p><a href="mailto:info@pev-labs.com">info@pev-labs.com</a></p>
+                        <p><a href="#" target="_blank">Get Directions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="footer-social-section">
+            <div class="container">
+                <div class="footer-social">
+                    <div class="copyright">
+                        © 2025 ProDrive EV Labs Ltd. All rights reserved.
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/pevlabs" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/pev-labs" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://facebook.com/pevlabs" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/pevlabs" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/pevlabs" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com/pevlabs" class="social-icon" aria-label="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            document.querySelectorAll('.theme-toggle i').forEach(icon => {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            });
+        }
+        
+        function toggleTheme() {
+            body.classList.toggle('light-theme');
+            const isLightTheme = body.classList.contains('light-theme');
+            
+            // Update icons
+            document.querySelectorAll('.theme-toggle i').forEach(icon => {
+                if (isLightTheme) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+        }
+        
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Mobile sidebar functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        
+        function openSidebar() {
+            mobileSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSidebar() {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidebar);
+        if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic form validation
+                const requiredFields = this.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#ff4757';
+                        isValid = false;
+                        
+                        // Remove error style when user starts typing
+                        field.addEventListener('input', function() {
+                            this.style.borderColor = '';
+                        });
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields marked with •');
+                    return;
+                }
+                
+                // Show success message
+                const submitBtn = this.querySelector('.form-submit-btn-modern');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent Successfully';
+                submitBtn.style.background = 'linear-gradient(135deg, #67e8a6, #059669)';
+                submitBtn.disabled = true;
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    
+                    // Show thank you message
+                    alert('Thank you for your inquiry! Our engineering team will contact you within 24 hours.');
+                }, 3000);
+            });
+        }
+        
+        // Animate stats on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        stat.style.animation = 'none';
+                        setTimeout(() => {
+                            stat.style.animation = '';
+                        }, 10);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsSection = document.querySelector('.hero-stats');
+        if (statsSection) observer.observe(statsSection);
+        
+        // Floating icons animation
+        const floatingIcons = document.querySelectorAll('.floating-icon');
+        floatingIcons.forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.5}s`;
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    closeSidebar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

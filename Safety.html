@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety & Compliance | PEV-LABS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A2342;
+            --secondary: #2A6187;
+            --accent: #0066CC;
+            --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --border: #DEE2E6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cert-badge {
+            background: var(--light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .cert-badge i {
+            color: var(--success);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 35, 66, 0.95) 0%, rgba(42, 97, 135, 0.95) 100%);
+            color: white;
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.03)" d="M42.3,-59.1C55.8,-50.8,68.4,-39.8,72.4,-26.3C76.3,-12.7,71.7,3.5,66.3,18.2C60.8,32.9,54.5,46.2,43.8,54.6C33.1,63,18,66.6,3.3,62.2C-11.4,57.9,-22.7,45.6,-34.1,36.2C-45.5,26.8,-57,20.3,-62.9,10.2C-68.8,0.1,-69.2,-13.6,-64.4,-25.1C-59.6,-36.6,-49.6,-45.9,-37.9,-54.9C-26.2,-63.9,-13.1,-72.6,0.9,-73.9C14.9,-75.2,29.9,-69.1,42.3,-59.1Z" transform="translate(100 100)"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.2;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .safety-monitor {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .monitor-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--success);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .monitor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* ===== SAFETY SYSTEMS ===== */
+        .safety-systems {
+            background-color: var(--light);
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .system-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .system-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .system-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .system-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .system-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .system-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .system-features i {
+            color: var(--success);
+            font-size: 0.8rem;
+        }
+
+        /* ===== STANDARDS ===== */
+        .standards {
+            background-color: white;
+        }
+
+        .standards-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .standards-text {
+            flex: 1;
+        }
+
+        .standards-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .standards-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .standards-list {
+            list-style: none;
+        }
+
+        .standards-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .standard-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .standard-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .standard-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .standards-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .certification-display {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .cert-card {
+            position: absolute;
+            width: 240px;
+            height: 160px;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.5s ease;
+        }
+
+        .cert-card:nth-child(1) {
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #ffffff, var(--light));
+            z-index: 1;
+        }
+
+        .cert-card:nth-child(2) {
+            top: 40px;
+            right: 0;
+            z-index: 2;
+        }
+
+        .cert-card:nth-child(3) {
+            bottom: 0;
+            left: 30px;
+            z-index: 3;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            z-index: 10;
+        }
+
+        .cert-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .cert-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* ===== COMPLIANCE ===== */
+        .compliance {
+            background-color: var(--light);
+        }
+
+        .compliance-tabs {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tab-headers {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tab-header {
+            padding: 16px 32px;
+            background: white;
+            border-radius: 8px;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-header.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .compliance-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compliance-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .compliance-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .compliance-details h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .compliance-details p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .standards-content {
+                flex-direction: column;
+            }
+
+            .certification-display {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .tab-headers {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-header {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .monitor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Safety Underpins Every Project at PEV-LABS</h1>
+                <p>Our designs incorporate insulated cables and enclosures, continuous isolation monitoring and interlocks to prevent unintended activation. We apply rigorous hazard analysis and international standards to every conversion.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="statProjects">247</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="statSafety">99.7%</span>
+                        <span class="stat-label">Safety Record</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="statStandards">18</span>
+                        <span class="stat-label">Standards Met</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="safety-monitor">
+                    <div class="monitor-header">
+                        <div class="monitor-title">Safety System Monitor</div>
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>All Systems Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="monitor-grid">
+                        <div class="metric">
+                            <div class="metric-value">25.3°C</div>
+                            <div class="metric-label">Battery Temp</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">98.6%</div>
+                            <div class="metric-label">Isolation Integrity</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">12.4V</div>
+                            <div class="metric-label">System Voltage</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">0 Faults</div>
+                            <div class="metric-label">Active Alerts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Systems -->
+    <section id="systems" class="safety-systems">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Safety Systems</h2>
+                <p>Multi-layered protection ensures maximum safety throughout the entire system lifecycle</p>
+            </div>
+            
+            <div class="systems-grid">
+                <div class="system-card">
+                    <div class="system-icon">
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </div>
+                    <h3>Battery Management</h3>
+                    <p>Advanced BMS protects against over-charge, over-discharge and overheating with continuous cell monitoring.</p>
+                    <ul class="system-features">
+                        <li><i class="fas fa-check-circle"></i> Thermal runaway prevention</li>
+                        <li><i class="fas fa-check-circle"></i> Cell balancing & monitoring</li>
+                        <li><i class="fas fa-check-circle"></i> State of health tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="system-card">
+                    <div class="system-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrical Protection</h3>
+                    <p>Fuses, circuit breakers and smart controllers guard against overcurrent and overvoltage conditions.</p>
+                    <ul class="system-features">
+                        <li><i class="fas fa-check-circle"></i> Fast-acting fuses</li>
+                        <li><i class="fas fa-check-circle"></i> Intelligent circuit protection</li>
+                        <li><i class="fas fa-check-circle"></i> Ground fault detection</li>
+                    </ul>
+                </div>
+                
+                <div class="system-card">
+                    <div class="system-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Physical Protection</h3>
+                    <p>Reinforced enclosures and crash sensors ensure pack integrity under all operating conditions.</p>
+                    <ul class="system-features">
+                        <li><i class="fas fa-check-circle"></i> Impact-resistant housing</li>
+                        <li><i class="fas fa-check-circle"></i> Crash detection systems</li>
+                        <li><i class="fas fa-check-circle"></i> Environmental sealing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards -->
+    <section id="standards" class="standards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certified Safety Excellence</h2>
+                <p>Adherence to global safety standards ensures compatibility and reliability worldwide.
+                    <br>PEV-LABS designs and manufactures all systems to meet or exceed the most stringent international safety standards, providing assurance of quality and reliability for our clients. </p>
+            </div>
+            
+            <div class="standards-content">
+                <div class="standards-text">
+                    <ul class="standards-list">
+                        <li>
+                            <div class="standard-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="standard-info">
+                                <h4>ISO 6469</h4>
+                                <p>Electrically propelled road vehicles - Safety specifications</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="standard-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="standard-info">
+                                <h4>UN-ECE R100</h4>
+                                <p>Requirements for approval of vehicles with electric power train</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="standard-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="standard-info">
+                                <h4>IEC 62196</h4>
+                                <p>Plugs, socket-outlets and vehicle connectors standards</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section id="compliance" class="compliance">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Compliance Framework</h2>
+                <p>Our systematic approach to safety ensures regulatory compliance across all markets</p>
+            </div>
+            
+            <div class="compliance-tabs">
+                <div class="tab-headers">
+                    <div class="tab-header active" data-tab="analysis">
+                        <i class="fas fa-clipboard-check"></i>
+                        Hazard Analysis
+                    </div>
+                    <div class="tab-header" data-tab="testing">
+                        <i class="fas fa-vial"></i>
+                        Testing & Validation
+                    </div>
+                    <div class="tab-header" data-tab="monitoring">
+                        <i class="fas fa-chart-line"></i>
+                        Continuous Monitoring
+                    </div>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="analysis">
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Failure Mode & Effects Analysis (FMEA)</h4>
+                                <p>Systematic evaluation of potential failure modes and their effects on system operation, with risk priority number assessment and mitigation strategies.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Hazard & Operability Study (HAZOP)</h4>
+                                <p>Structured examination of processes and systems to identify and evaluate problems that may represent risks to personnel or equipment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Risk Assessment Matrix</h4>
+                                <p>Quantitative risk assessment combining likelihood and severity to prioritize safety improvements and control measures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="testing">
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-temperature-high"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Thermal Testing</h4>
+                                <p>Comprehensive thermal cycling, thermal shock, and elevated temperature testing to ensure battery safety under extreme conditions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Mechanical Testing</h4>
+                                <p>Vibration, shock, crush, and penetration testing to validate physical integrity and crashworthiness of battery enclosures.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Electrical Testing</h4>
+                                <p>Overcharge, short circuit, and insulation resistance testing to verify electrical safety and protection systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="monitoring">
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Real-time Monitoring</h4>
+                                <p>Continuous monitoring of voltage, current, temperature, and isolation resistance with automated alerting and logging.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Data Logging & Analysis</h4>
+                                <p>Comprehensive data collection for performance tracking, predictive maintenance, and continuous improvement.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <div class="compliance-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="compliance-details">
+                                <h4>Audit Trail</h4>
+                                <p>Complete traceability of all safety-critical operations, maintenance activities, and system events for regulatory compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ensure Your Project Meets the Highest Safety Standards</h2>
+                <p>Partner with PEV-LABS for electric vehicle conversions that prioritize safety, compliance, and reliability. Contact our safety engineering team today.</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i>
+                        Request Safety Audit
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-phone-alt"></i>
+                        Contact Safety Team
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>PEV-LABS</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px; font-size: 0.9rem;">Safety underpins every project at PEV-LABS. Our commitment to rigorous standards and comprehensive protection systems ensures the highest level of safety for all our conversions.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Safety Systems</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Battery Management</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Electrical Protection</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Physical Enclosures</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Thermal Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Standards</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-certificate"></i> ISO 6469</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> UN-ECE R100</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> IEC 62196</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> SAE J1772</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Safety Drive, Tech Park</a></li>
+                        <li><a href="#"><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> safety@pev-labs.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM EST</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 PEV-LABS. All rights reserved. Safety First in Every Conversion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animated counters
+            const counters = [
+                { element: document.getElementById('statProjects'), target: 247, duration: 2000 },
+                { element: document.getElementById('statSafety'), target: 99.7, duration: 2500, suffix: '%' },
+                { element: document.getElementById('statStandards'), target: 18, duration: 1800 }
+            ];
+
+            function animateCounter(counter) {
+                let start = 0;
+                const increment = counter.target / (counter.duration / 16);
+                const timer = setInterval(() => {
+                    start += increment;
+                    if (start >= counter.target) {
+                        counter.element.textContent = counter.target + (counter.suffix || '');
+                        clearInterval(timer);
+                    } else {
+                        const value = counter.suffix === '%' ? start.toFixed(1) : Math.floor(start);
+                        counter.element.textContent = value + (counter.suffix || '');
+                    }
+                }, 16);
+            }
+
+            // Start counters when hero section is in view
+            const heroObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                    heroObserver.disconnect();
+                }
+            }, { threshold: 0.5 });
+
+            heroObserver.observe(document.querySelector('.hero'));
+
+            // Tab functionality
+            const tabHeaders = document.querySelectorAll('.tab-header');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab header
+                    tabHeaders.forEach(h => h.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update active tab pane
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        if (pane.id === tabId) {
+                            pane.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Header scroll effect
+            let lastScroll = 0;
+            const header = document.querySelector('header');
+
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+                    return;
+                }
+                
+                if (currentScroll > lastScroll) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Animate system cards on scroll
+            const systemCards = document.querySelectorAll('.system-card');
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+                        }, index * 200);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            systemCards.forEach(card => {
+                card.style.opacity = '0';
+                cardObserver.observe(card);
+            });
+
+            // Animate certification cards
+            const certCards = document.querySelectorAll('.cert-card');
+            certCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 500 + (index * 200));
+            });
+
+            // Update monitor metrics randomly
+            function updateMetrics() {
+                const metrics = document.querySelectorAll('.metric-value');
+                const values = [
+                    (25 + Math.random() * 2).toFixed(1) + '°C',
+                    (98 + Math.random() * 1.5).toFixed(1) + '%',
+                    (12.3 + Math.random() * 0.2).toFixed(1) + 'V',
+                    Math.floor(Math.random() * 2) + ' Faults'
+                ];
+                
+                metrics.forEach((metric, index) => {
+                    metric.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        metric.textContent = values[index];
+                        metric.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            }
+
+            // Update metrics every 5 seconds
+            setInterval(updateMetrics, 5000);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

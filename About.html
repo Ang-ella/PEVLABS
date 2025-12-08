@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | PEV Labs</title>
+    <meta name="description" content="Learn about PEV Labs - our mission, team, values, and commitment to sustainable energy and electric vehicle solutions.">
+    <meta name="theme-color" content="#0a0f14">
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+/* Add this at the VERY BEGINNING of your <style> tag */
+
+/* =========
+   DESIGN TOKENS
+   ========= */
+:root {
+    --bg: #0a0f14;
+    --bg-2: #0f151c;
+    --text: #e9eef2;
+    --muted: #b8c3cc;
+    --card: #131a22;
+    --stroke: #223040;
+    --accent: #17a2ff;
+    --accent-2: #67e8a6;
+    --radius: 14px;
+    --maxw: min(96vw, 1200px);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --transition-fast: 120ms ease;
+    --transition-medium: 250ms ease;
+    --transition-slow: 420ms ease;
+}
+
+.light-theme {
+    --bg: #ffffff;
+    --bg-2: #f8fafc;
+    --text: #0f172a;
+    --muted: #475569;
+    --card: #ffffff;
+    --stroke: #e2e8f0;
+    --accent: #2563eb;
+    --accent-2: #059669;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Add these base styles */
+html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Add container styles */
+.container {
+    width: min(100%, var(--maxw));
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+/* Add text color fixes */
+h1, h2, h3, h4, p {
+    color: var(--text);
+}
+
+.subtitle {
+    color: var(--accent-2);
+}
+
+.lead {
+    color: var(--muted);
+}
+
+/* === LIGHT THEME BACKGROUND FIXES === */
+
+/* Fix Hero Section "Our Journey" - keep blue/green effects */
+.light-theme main > .section:first-of-type {
+    background: linear-gradient(135deg, #f0f9ff, #f0fdf4) !important;
+}
+
+/* Fix timeline section background */
+.light-theme .timeline-section {
+    background: linear-gradient(180deg, #ffffff, #f8fafc) !important;
+}
+
+/* Fix diagonal section background */
+.light-theme .diagonal-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+.light-theme .diagonal-section::before {
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(37, 99, 235, 0.03) 10px,
+            rgba(37, 99, 235, 0.03) 20px
+        ) !important;
+}
+
+/* === TEXT CONTRAST FIXES FOR LIGHT THEME === */
+
+/* Fix diagonal text section */
+.light-theme .diagonal-text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95)) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .diagonal-text h2 {
+    color: #1e293b !important;
+}
+
+.light-theme .diagonal-text p {
+    color: #475569 !important;
+}
+
+.light-theme .diagonal-text .subtitle {
+    color: #059669 !important;
+}
+
+/* Fix timeline content */
+.light-theme .timeline-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .timeline-content h3 {
+    color: #1e293b !important;
+}
+
+.light-theme .timeline-content p {
+    color: #475569 !important;
+}
+
+/* Fix mission/vision cards */
+.light-theme .mv-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .mv-card h3 {
+    color: #1e293b !important;
+}
+
+.light-theme .mv-card p {
+    color: #475569 !important;
+}
+
+/* Fix pillar cards */
+.light-theme .pillar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9)) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .pillar h3 {
+    color: #1e293b !important;
+}
+
+.light-theme .pillar p {
+    color: #475569 !important;
+}
+
+/* Fix the timeline year badge for better visibility in light theme */
+.light-theme .timeline-year {
+    color: white !important;
+    background: linear-gradient(135deg, #2563eb, #059669) !important;
+}
+
+/* Fix certification text in diagonal section */
+.light-theme .diagonal-text p[style*="color: var(--accent-2)"] {
+    color: #059669 !important;
+}
+
+        /* =========
+           UNIQUE ABOUT PAGE STRUCTURE
+           ========= */
+
+        /* Timeline Layout */
+        .timeline-section {
+            background: linear-gradient(180deg, var(--bg), var(--bg-2));
+            position: relative;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--card), rgba(19, 26, 34, 0.8));
+            border-radius: var(--radius);
+            border: 1px solid var(--stroke);
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 3rem;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: -20px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: var(--bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -20px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -20px;
+        }
+
+        /* Circular Stats Layout */
+        .circular-stats {
+            background: var(--bg-2);
+        }
+
+        .stats-circle-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-circle {
+            text-align: center;
+            position: relative;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-bg {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent) 0% 75%, var(--stroke) 75% 100%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .circle-bg-2 {
+            background: conic-gradient(var(--accent-2) 0% 85%, var(--stroke) 85% 100%);
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        .circle-bg-3 {
+            background: conic-gradient(var(--accent) 0% 65%, var(--stroke) 65% 100%);
+            animation-duration: 18s;
+        }
+
+        .circle-bg-4 {
+            background: conic-gradient(var(--accent-2) 0% 90%, var(--stroke) 90% 100%);
+            animation-duration: 22s;
+            animation-direction: reverse;
+        }
+
+        .circle-inner {
+            position: relative;
+            z-index: 2;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--stroke);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            max-width: 120px;
+        }
+
+        /* Diagonal Section */
+        .diagonal-section {
+            background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diagonal-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(23, 162, 255, 0.03) 10px,
+                    rgba(23, 162, 255, 0.03) 20px
+                );
+            animation: slide 30s linear infinite;
+        }
+
+        .diagonal-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .diagonal-text {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(19, 26, 34, 0.9), rgba(15, 22, 32, 0.9));
+            border-radius: var(--radius);
+            border: 1px solid var(--stroke);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Value Pillars */
+        .pillars-section {
+            background: var(--bg);
+        }
+
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .pillar {
+            background: linear-gradient(180deg, var(--card), rgba(19, 26, 34, 0.8));
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pillar:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(23, 162, 255, 0.1);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Team Showcase */
+        .team-showcase {
+            background: linear-gradient(180deg, var(--bg-2), var(--bg));
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, var(--card), rgba(19, 26, 34, 0.9));
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 15, 20, 0.9), transparent);
+            padding: 2rem 1.5rem 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover .team-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-2);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid var(--stroke);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .mv-card {
+            background: linear-gradient(135deg, rgba(19, 26, 34, 0.8), rgba(15, 22, 32, 0.9));
+            border-radius: var(--radius);
+            padding: 3rem;
+            border: 1px solid var(--stroke);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        }
+
+        .mv-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--bg);
+            font-size: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0) translateY(0); }
+            to { transform: translateX(20px) translateY(20px); }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline-section::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 60px;
+            }
+
+            .timeline-content {
+                margin: 0 !important;
+            }
+
+            .timeline-year {
+                left: -80px !important;
+                right: auto !important;
+            }
+
+            .diagonal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .mv-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+
+            .stats-circle-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-container {
+                grid-template-columns: 1fr;
+            }
+
+            .diagonal-text {
+                padding: 2rem;
+            }
+
+            .mv-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-circle-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding-inline: 1.2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* === LIGHT THEME BACKGROUND FIXES === */
+
+/* Fix Hero Section "Our Journey" - keep blue/green effects */
+.light-theme .section[style*="background: linear-gradient(135deg, #0a0f14, #0f151c)"] {
+    background: linear-gradient(135deg, #f0f9ff, #f0fdf4) !important;
+}
+
+/* Fix timeline section background */
+.light-theme .timeline-section {
+    background: linear-gradient(180deg, #ffffff, #f8fafc) !important;
+}
+
+/* Fix diagonal section background */
+.light-theme .diagonal-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+.light-theme .diagonal-section::before {
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(37, 99, 235, 0.03) 10px,
+            rgba(37, 99, 235, 0.03) 20px
+        ) !important;
+}
+
+/* Fix circular stats background */
+.light-theme .circular-stats {
+    background: #f8fafc !important;
+}
+
+/* Fix pillars section background */
+.light-theme .pillars-section {
+    background: #ffffff !important;
+}
+
+/* Fix team showcase background */
+.light-theme .team-showcase {
+    background: linear-gradient(180deg, #f8fafc, #ffffff) !important;
+}
+
+/* Fix mission vision background */
+.light-theme .mission-vision {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+}
+
+/* Fix hero section badge backgrounds for light theme */
+.light-theme .section span[style*="background: rgba(23, 162, 255, 0.1)"] {
+    background: rgba(37, 99, 235, 0.1) !important;
+}
+
+.light-theme .section span[style*="background: rgba(103, 232, 166, 0.1)"] {
+    background: rgba(5, 150, 105, 0.1) !important;
+}
+
+        
+    </style>
+</head>
+<body>
+    <!-- Mobile Top Bar -->
+    <div class="mobile-top-bar">
+        <div class="container">
+            <div class="mobile-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+            </div>
+            <div class="mobile-controls">
+                <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo">
+              <img src="logo.svg" alt="PEV Labs - Clean energy and mobility" class="logo-image">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="About.html" class="nav-link">About</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="Partnership.html" class="nav-link">Partnerships</a></li>
+                    
+                    <li><a href="blogs1.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-controls">
+                <button class="theme-toggle" id="desktopThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">PEV Labs</div>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-nav">
+            <ul class="sidebar-nav-menu">
+                <li class="sidebar-nav-item"><a href="/" class="sidebar-nav-link">Home</a></li>
+                <li class="sidebar-nav-item"><a href="About.html" class="sidebar-nav-link">About</a></li>
+                <li class="sidebar-nav-item"><a href="#solutions" class="sidebar-nav-link">Solutions</a></li>
+                <li class="sidebar-nav-item"><a href="Partnership.html" class="sidebar-nav-link">Partnerships</a></li>
+                <li class="sidebar-nav-item"><a href="blogs1.html" class="sidebar-nav-link">Blog</a></li>
+                <li class="sidebar-nav-item"><a href="contact.html" class="sidebar-nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+                <a href="#" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+            </div>
+        </div>
+    </div>
+
+
+    <main>
+        <section class="section" style="background: linear-gradient(135deg, #0a0f14, #0f151c);">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <span class="subtitle">Our Journey</span>
+                    <h1 style="margin-bottom: 1.5rem;">Engineering Sustainable Mobility</h1>
+                    <p class="lead" style="margin-bottom: 2rem;">
+                        At PEV Labs, we're not just building technology—we're building a cleaner future. 
+                        Through innovative engineering and sustainable solutions, we're transforming 
+                        transportation one vehicle at a time.
+                    </p>
+                    <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                        <span style="padding: 0.5rem 1.5rem; background: rgba(23, 162, 255, 0.1); border-radius: 20px; color: var(--accent);">
+                            <i class="fas fa-bolt"></i> Since 2018
+                        </span>
+                        <span style="padding: 0.5rem 1.5rem; background: rgba(103, 232, 166, 0.1); border-radius: 20px; color: var(--accent-2);">
+                            <i class="fas fa-leaf"></i> Carbon Neutral
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section timeline-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem;">Our Evolution</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2018</span>
+                        <h3 style="margin-bottom: 1rem;">The Beginning</h3>
+                        <p>Founded by engineers passionate about sustainable transportation. Started with our first EV conversion lab in Accra, Ghana.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2019</span>
+                        <h3 style="margin-bottom: 1rem;">First Major Project</h3>
+                        <p>Successfully converted a fleet of 15 delivery vehicles to electric, proving the viability of commercial EV conversions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2021</span>
+                        <h3 style="margin-bottom: 1rem;">Expansion & Innovation</h3>
+                        <p>Opened offices in North America and Europe. Developed proprietary battery management systems and charging solutions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h3 style="margin-bottom: 1rem;">Industry Recognition</h3>
+                        <p>Awarded "Most Innovative Clean Tech Company" by Sustainable Mobility Association. Reached 200+ successful projects.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h3 style="margin-bottom: 1rem;">Future Vision</h3>
+                        <p>Launching next-generation modular EV platforms and expanding grid-scale energy storage solutions across Africa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Circular Stats Section -->
+        <section class="section circular-stats">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem;">Impact in Motion</h2>
+                
+                <div class="stats-circle-container">
+                    <div class="stat-circle">
+                        <div class="circle-bg"></div>
+                        <div class="circle-inner">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-circle">
+                        <div class="circle-bg circle-bg-2"></div>
+                        <div class="circle-inner">
+                            <div class="stat-number">15M+</div>
+                            <div class="stat-label">Miles Electrified</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-circle">
+                        <div class="circle-bg circle-bg-3"></div>
+                        <div class="circle-inner">
+                            <div class="stat-number">45+</div>
+                            <div class="stat-label">Cities Served</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-circle">
+                        <div class="circle-bg circle-bg-4"></div>
+                        <div class="circle-inner">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagonal Content Section -->
+        <section class="section diagonal-section">
+            <div class="container">
+                <div class="diagonal-content">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="PEV Labs Engineering Team" 
+                             style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg);">
+                    </div>
+                    <div class="diagonal-text">
+                        <span class="subtitle">Our Approach</span>
+                        <h2 style="margin-bottom: 1.5rem;">Engineering with Purpose</h2>
+                        <p>We believe sustainable technology should be accessible, reliable, and practical. Our engineering philosophy combines rigorous testing with innovative design to create solutions that stand the test of time.</p>
+                        <p>Every project undergoes comprehensive validation—from initial design through implementation—ensuring safety, performance, and environmental responsibility at every stage.</p>
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--stroke);">
+                            <p style="font-size: 1rem; color: var(--accent-2); margin-bottom: 0.5rem;">
+                                <i class="fas fa-check-circle"></i> ISO 9001:2015 Certified
+                            </p>
+                            <p style="font-size: 1rem; color: var(--accent-2); margin-bottom: 0;">
+                                <i class="fas fa-check-circle"></i> Automotive-Grade Safety Standards
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Pillars Section -->
+        <section class="section pillars-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem;">Our Foundation</h2>
+                
+                <div class="pillars-container">
+                    <div class="pillar">
+                        <div class="pillar-number">01</div>
+                        <h3 style="margin-bottom: 1rem;">Safety & Reliability</h3>
+                        <p>Every system undergoes rigorous testing and validation to ensure long-term safety and reliability for our clients and end-users.</p>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-number">02</div>
+                        <h3 style="margin-bottom: 1rem;">Environmental Impact</h3>
+                        <p>We measure success by positive environmental outcomes, prioritizing solutions that reduce emissions and promote sustainability.</p>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-number">03</div>
+                        <h3 style="margin-bottom: 1rem;">Innovation & Excellence</h3>
+                        <p>Continuous research and development drive our pursuit of cutting-edge solutions that redefine clean transportation standards.</p>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-number">04</div>
+                        <h3 style="margin-bottom: 1rem;">Collaboration & Community</h3>
+                        <p>We work closely with clients, partners, and communities to create tailored solutions that address specific needs and challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Showcase -->
+        <section class="section team-showcase">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem;">Meet Our Leadership Team</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Chen">
+                            <div class="team-overlay">
+                                <h3 style="margin-bottom: 0.25rem;">Dr. Michael Chen</h3>
+                                <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0;">Founder & CEO</p>
+                                <div class="team-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sarah Johnson">
+                            <div class="team-overlay">
+                                <h3 style="margin-bottom: 0.25rem;">Sarah Johnson</h3>
+                                <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0;">Chief Technology Officer</p>
+                                <div class="team-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="David Rodriguez">
+                            <div class="team-overlay">
+                                <h3 style="margin-bottom: 0.25rem;">David Rodriguez</h3>
+                                <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0;">Head of Engineering</p>
+                                <div class="team-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="section mission-vision">
+            <div class="container">
+                <div class="mv-container">
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Our Mission</h3>
+                        <p>To accelerate the global transition to sustainable transportation by developing and deploying innovative clean energy solutions that are accessible, reliable, and environmentally responsible.</p>
+                    </div>
+
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Our Vision</h3>
+                        <p>A future where clean mobility is the norm, not the exception—where every vehicle on the road contributes to cleaner air, reduced emissions, and a healthier planet for generations to come.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+ <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Solutions Column -->
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="EVconversions.html">EV Conversion</a></li>
+                        <li><a href="Energysolutions.html">Energy Storage Solutions</a></li>
+                        <li><a href="ChargingInfrastructure.html">Charging Infrastructure</a></li>
+                        <li><a href="SolarInfrastructure.html">Solar Infrastructure</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="/careers">Solutions</a></li>
+                        <li><a href="blogs1.html">News & Insights</a></li>
+                        <li><a href="Partnership.html">Partnerships & Investors</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Column -->
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/terms">Terms & Conditions</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="Safety.html">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <p><strong>ProDrive EV Labs Ltd</strong></p>
+                        <p>No. 1 Densu Street<br>
+                        Haavad Valley, Amrahia<br>
+                        Greater Accra, Ghana</p>
+                        <p><a href="mailto:info@pev-labs.com">info@pev-labs.com</a></p>
+                        <p><a href="#" target="_blank">Get Directions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="footer-social-section">
+            <div class="container">
+                <div class="footer-social">
+                    <div class="copyright">
+                        © 2025 ProDrive EV Labs Ltd. All rights reserved.
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/pevlabs" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/pev-labs" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://facebook.com/pevlabs" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/pevlabs" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/pevlabs" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com/pevlabs" class="social-icon" aria-label="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

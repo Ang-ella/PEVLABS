@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Storage Solutions (BESS & second‐life batteries)|  Precision, innovation, and excellence 
+                in every project.</title>
+    <meta name="description" content="We deliver battery energy storage (BESS), solar & charging infrastructure, and complete EV conversions for standard, micromobility, and fleet vehicles.">
+    <meta name="theme-color" content="#0a0f14">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="solutions.css">
+    <script src="js.js" defer></script>
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =========
+           RESET & VARIABLES
+           ========= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0f14;
+            --bg-2: #0f151c;
+            --text: #e9eef2;
+            --muted: #b8c3cc;
+            --card: #131a22;
+            --stroke: #223040;
+            --accent: #17a2ff;
+            --accent-2: #67e8a6;
+            --radius: 14px;
+            --maxw: min(96vw, 1440px);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --transition-fast: 120ms ease;
+            --transition-medium: 250ms ease;
+            --transition-slow: 420ms ease;
+        }
+
+        .light-theme {
+            --bg: #ffffff;
+            --bg-2: #f8fafc;
+            --text: #0f172a;
+            --muted: #475569;
+            --card: #ffffff;
+            --stroke: #e2e8f0;
+            --accent: #2563eb;
+            --accent-2: #059669;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            transition: background-color var(--transition-medium), color var(--transition-medium);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========
+           NAVIGATION
+           ========= */
+        /* Mobile Top Bar */
+        .mobile-top-bar {
+            display: none;
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--stroke);
+            padding: 0.5rem 0;
+        }
+
+        .mobile-top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mobile-contact a {
+            color: var(--muted);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .mobile-contact a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        
+        /* Header */
+        header {
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--stroke);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0;
+            transition: all var(--transition-medium);
+        }
+
+        .light-theme header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        header.scrolled {
+            padding: 0.75rem 0;
+            background: rgba(10, 15, 20, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .light-theme header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .container {
+            width: min(100%, var(--maxw));
+            margin-inline: auto;
+            padding-inline: clamp(1rem, 3vw, 2rem);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            transition: transform var(--transition-fast);
+        }
+
+        .logo:hover .logo-image {
+            transform: scale(1.05);
+        }
+
+        /* Header controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--stroke);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text);
+            transition: all var(--transition-fast);
+            margin-left: auto;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            display: none;
+        }
+
+        /* Mobile sidebar */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 1001;
+            transition: right var(--transition-medium);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+        }
+
+        .light-theme .mobile-sidebar {
+            background: var(--bg);
+        }
+
+        .mobile-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--stroke);
+            background: var(--card);
+        }
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .sidebar-close-btn {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+        }
+
+        .sidebar-close-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .sidebar-nav {
+            padding: 1rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .sidebar-nav-menu {
+            list-style: none;
+        }
+
+        .sidebar-nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav-link {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all var(--transition-fast);
+            border-bottom: 1px solid var(--stroke);
+        }
+
+        .sidebar-nav-link:hover {
+            color: var(--accent);
+            padding-left: 0.5rem;
+        }
+
+        .sidebar-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--stroke);
+            background: var(--card);
+        }
+
+        .sidebar-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-contact a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-contact a:hover {
+            color: var(--accent);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* RESPONSIVE NAVIGATION */
+        @media (max-width: 768px) {
+            .mobile-top-bar {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .header-controls {
+                display: none;
+            }
+
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-top-bar {
+                display: none;
+            }
+            
+            .mobile-controls {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* =========
+           STUNNING HEADER - FIXED
+           ========= */
+        .stunning-header {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(23, 162, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(103, 232, 166, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg) 0%, rgba(10, 15, 20, 0.8) 100%);
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .float-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            opacity: 0.1;
+            filter: blur(40px);
+            animation: float 20s infinite linear;
+        }
+
+        .float-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .float-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .float-3 {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 70%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, -50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-50px, 100px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-100px, -50px) rotate(270deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-badge::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 30%, var(--accent) 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .sphere-actions {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* =========
+           BUTTONS
+           ========= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 3rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all var(--transition-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #0f7dc4);
+            color: var(--bg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--stroke);
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* =========
+           SERVICE PILLARS
+           ========= */
+        .service-pillars {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .pillars-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pillar {
+            margin-bottom: 8rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pillar:nth-child(even) {
+            transform: translateX(50px);
+        }
+
+        .pillar.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .pillar-content {
+            padding: 2rem;
+        }
+
+        .pillar-category {
+            display: inline-block;
+            background: rgba(23, 162, 255, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .pillar-description {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .pillar-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .pillar-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            font-size: 0.8rem;
+        }
+
+        /* =========
+           RESPONSIVE
+           ========= */
+        @media (max-width: 1200px) {
+            .pillar {
+                margin-bottom: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+
+            .pillar-title {
+                font-size: 2.5rem;
+            }
+
+         
+        
+
+           
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .sphere-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-badge {
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wave-track {
+                animation-duration: 60s;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Top Bar -->
+    <div class="mobile-top-bar">
+        <div class="container">
+            <div class="mobile-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+            </div>
+            <div class="mobile-controls">
+                <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-content">
+            <a href="/" class="logo">
+              <img src="logo.svg" alt="PEV Labs - Clean energy and mobility" class="logo-image">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="/" class="nav-link active">Home</a></li>
+                    <li><a href="About.html" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Solutions</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="blogs1.html" class="nav-link">Blog</a></li>
+                    <li><a href="Partnership.html" class="nav-link">Partnerships</a></li>
+
+                </ul>
+            </nav>
+            
+            <div class="header-controls">
+                <button class="theme-toggle" id="desktopThemeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">
+                <a href="/" class="logo">
+              <img src="logo.svg" alt="PEV Labs - Clean energy and mobility" class="logo-image">
+            </a>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-nav">
+            <ul class="sidebar-nav-menu">
+                <li class="sidebar-nav-item"><a href="index.html" class="sidebar-nav-link">Home</a></li>
+                <li class="sidebar-nav-item"><a href="About.html" class="sidebar-nav-link">About</a></li>
+                <li class="sidebar-nav-item"><a href="#projects" class="sidebar-nav-link">Solutions</a></li>
+                <li class="sidebar-nav-item"><a href="Partnership.html" class="sidebar-nav-link">Partnership</a></li>
+                <li class="sidebar-nav-item"><a href="blogs1.html" class="sidebar-nav-link">Blog</a></li>
+                <li class="sidebar-nav-item"><a href="contact.html" class="sidebar-nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="sidebar-contact">
+                <a href="tel:+233123456789"><i class="fas fa-phone"></i> +233 123 456 789</a>
+                <a href="mailto:info@pev-labs.com"><i class="fas fa-envelope"></i> info@pev-labs.com</a>
+                <a href="#" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stunning Header -->
+    <section class="stunning-header" id="home">
+        <div class="floating-elements">
+            <div class="float-element float-1"></div>
+            <div class="float-element float-2"></div>
+            <div class="float-element float-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">PEV Drive Labs</div>
+            <h1 class="hero-title">Energy Storage Solutions (BESS & second‐life batteries)</h1>
+            <p class="hero-subtitle">
+                We design stationary and mobile BESS built from
+high‐quality or second‐life EV modules. Packs are configurable in series/parallel,
+include thermal management and incorporate bespoke battery management
+systems.
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Pillars -->
+    <section class="service-pillars" id="pillars">
+        <div class="pillars-container">
+            <!-- Pillar 1 -->
+            <div class="pillar">
+                <div class="pillar-content">
+                    <span class="pillar-category">EV conversions</span>
+                    <h2 class="pillar-title">Modular battery systems</h2>
+                    <ul class="pillar-features">
+                         <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Custom design of both stationary and mobile energy storage.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Utilization of premium or repurposed EV battery modules.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Flexible power and capacity through series/parallel configurations.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Incorporation of advanced thermal control and custom BMS technology.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="pillar">
+                <div class="pillar-content">
+                    <span class="pillar-category">EV Conversions</span>
+                    <h2 class="pillar-title">Grid Independence Solutions</h2>
+                    <ul class="pillar-features">
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Creation of hybrid systems combining storage with solar or grid power.
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Provision of reliable overnight energy for residential or commercial use.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Capability for peak demand reduction (peak shaving) on the grid.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Delivery of dependable power for fully off-grid applications.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-content">
+                    <span class="pillar-category">EV Conversions</span>
+                    <h2 class="pillar-title">Smart Energy Management</h2>
+                    <ul class="pillar-features">
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Deployment of integrated monitoring software for battery analytics.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Continuous tracking of battery health and state of charge.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Intelligent optimization of energy distribution and flow.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Reduction of client operational costs while enhancing battery longevity.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-content">
+                    <span class="pillar-category">EV Conversions</span>
+                    <h2 class="pillar-title">Comprehensive Engineering Support:</h2>
+                    <ul class="pillar-features">
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Electrical isolation services and detailed fault diagnostics.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Bespoke design and development of battery pack architectures.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            Full lifecycle technical support and maintenance services.
+                        </li>
+                        <li class="pillar-feature">
+                            <div class="feature-check">✓</div>
+                            End-to-end project management for energy storage implementation.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Solutions Column -->
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="/solutions/ev-conversions">EV Conversion</a></li>
+                        <li><a href="/solutions/ess">Energy Storage Solutions</a></li>
+                        <li><a href="/solutions/charging">Charging Infrastructure</a></li>
+                        <li><a href="/solutions/solar">Solar Infrastructure</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/blog">News & Insights</a></li>
+                        <li><a href="/partnerships">Partnerships & Investors</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Column -->
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/terms">Terms & Conditions</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/compliance">Regulatory Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-info">
+                        <p><strong>ProDrive EV Labs Ltd</strong></p>
+                        <p>No. 1 Densu Street<br>
+                        Haavad Valley, Amrahia<br>
+                        Greater Accra, Ghana</p>
+                        <p><a href="mailto:info@pev-labs.com">info@pev-labs.com</a></p>
+                        <p><a href="#" target="_blank">Get Directions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="footer-social-section">
+            <div class="container">
+                <div class="footer-social">
+                    <div class="copyright">
+                        © 2025 ProDrive EV Labs Ltd. All rights reserved.
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/pevlabs" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/pev-labs" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://facebook.com/pevlabs" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/pevlabs" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/pevlabs" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com/pevlabs" class="social-icon" aria-label="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
