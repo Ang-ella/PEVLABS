@@ -16,6 +16,132 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =========
+   LIGHT THEME FIXES FOR PARTNERSHIP PAGE
+   ========= */
+
+/* Fix Hero Section */
+.light-theme .hero {
+    background: 
+        radial-gradient(1200px 600px at 50% -10%, rgba(37, 99, 235, 0.12), transparent 60%),
+        radial-gradient(900px 480px at 80% 0%, rgba(5, 150, 105, 0.08), transparent 60%),
+        linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Fix Partnership Intro Section */
+.light-theme .partnership-intro {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+.light-theme .company-logos {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .logo-item {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .logo-item:hover {
+    border-color: #2563eb !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Fix Capabilities Section */
+.light-theme .capabilities {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+}
+
+.light-theme .capability-card {
+    background: linear-gradient(180deg, #ffffff, #f8fafc) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.light-theme .capability-card:hover {
+    border-color: #2563eb !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .capability-icon {
+    background: rgba(37, 99, 235, 0.1) !important;
+    color: #2563eb !important;
+}
+
+/* Fix Collaboration Details Section */
+.light-theme .collaboration-details {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+.light-theme .timeline-content {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Fix Future Plans Section */
+.light-theme .future-plans {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+}
+
+.light-theme .plans-visual {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .plans-visual::before {
+    background: 
+        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(5, 150, 105, 0.08) 0%, transparent 50%) !important;
+}
+
+/* Fix CTA Section */
+.light-theme .cta {
+    background: 
+        radial-gradient(800px 400px at 50% -100%, rgba(37, 99, 235, 0.08), transparent 60%),
+        radial-gradient(600px 300px at 80% 100%, rgba(5, 150, 105, 0.06), transparent 60%),
+        linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+/* Fix partnership badge */
+.light-theme .partnership-badge {
+    background: rgba(37, 99, 235, 0.1) !important;
+    border: 1px solid rgba(37, 99, 235, 0.3) !important;
+    color: #2563eb !important;
+}
+
+/* Fix the intro text h2 underline */
+.light-theme .intro-text h2::after {
+    background: linear-gradient(90deg, #2563eb, #059669) !important;
+}
+
+/* Fix the plans content h2 underline */
+.light-theme .plans-content h2::after {
+    background: linear-gradient(90deg, #059669, #2563eb) !important;
+}
+
+/* Fix features list */
+.light-theme .features-list li {
+    color: #475569 !important;
+}
+
+.light-theme .features-list i {
+    color: #059669 !important;
+}
+
+/* Fix visual icon */
+.light-theme .visual-icon {
+    color: #059669 !important;
+}
+
+/* Fix timeline icon */
+.light-theme .timeline-icon {
+    background: linear-gradient(135deg, #2563eb, #059669) !important;
+}
+    </style>
 </head>
 <body>
     <!-- Mobile Top Bar -->
@@ -44,12 +170,13 @@
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="/" class="nav-link active">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="About.html" class="nav-link">About</a></li>
                     <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#blogs" class="nav-link">Blog</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li><a href="Partnership.html" class="nav-link active">Partnerships</a></li>
+                    
+                    <li><a href="blogs1.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             
@@ -263,10 +390,10 @@
                 <div class="footer-section">
                     <h3>Solutions</h3>
                     <ul class="footer-links">
-                        <li><a href="/solutions/ev-conversions">EV Conversion</a></li>
-                        <li><a href="/solutions/ess">Energy Storage Solutions</a></li>
-                        <li><a href="/solutions/charging">Charging Infrastructure</a></li>
-                        <li><a href="/solutions/solar">Solar Infrastructure</a></li>
+                        <li><a href="EVconversions.html">EV Conversion</a></li>
+                        <li><a href="Energysolutions.html">Energy Storage Solutions</a></li>
+                        <li><a href="ChargingInfrastructure.html">Charging Infrastructure</a></li>
+                        <li><a href="SolarInfrastructure.html">Solar Infrastructure</a></li>
                     </ul>
                 </div>
                 
